@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050909">
+<title>Black Hat.ai — Hack Smarter. Learn Faster.</title>
+<style>
+:root{--bg:#050909;--panel:#081111;--green:#00f58a;--muted:#b8c9d0;--line:#17302b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 12%,#06231a 0,transparent 34%),var(--bg);color:#f3fbf7;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}.wrap{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#050909eF;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{font-weight:850;font-size:1.45rem;letter-spacing:-.04em}.brand span{color:var(--green)}.links{display:flex;gap:26px;color:#c6d5d1;font-size:.95rem}.links a:hover{color:var(--green)}.actions{display:flex;gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 17px;border-radius:12px;border:1px solid #00a968;background:transparent;color:var(--green);font-weight:700;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--green)}.btn.primary{background:var(--green);color:#00170d;border-color:var(--green)}.menu{display:none}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;min-height:520px;padding:64px 0}.eyebrow{color:var(--green);font:700 .78rem ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.98;letter-spacing:-.065em;margin:20px 0}.hero h1 span{color:var(--green)}.hero h2{font-size:1.2rem;margin:0 0 14px}.hero p{color:var(--muted);line-height:1.75;max-width:570px}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.visual{position:relative;min-height:365px;border:1px solid #174333;border-radius:24px;overflow:hidden;background:linear-gradient(140deg,#0b211b,#030707 68%);display:flex;align-items:center;justify-content:center}.visual:before,.visual:after{content:"";position:absolute;inset:0;background-image:linear-gradient(#0aff8a0c 1px,transparent 1px),linear-gradient(90deg,#0aff8a0c 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(black,transparent)}.orb{width:220px;height:220px;border:1px solid #00f58a80;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 75px #00f58a20,inset 0 0 55px #00f58a10;position:relative;z-index:1}.hood{font-size:6rem;filter:drop-shadow(0 0 16px #00f58a70)}.terminal{position:absolute;z-index:2;left:18px;bottom:18px;right:18px;padding:14px 16px;border:1px solid #1a5b42;border-radius:12px;background:#030908eF;color:var(--green);font: .8rem ui-monospace,monospace;line-height:1.7}.terminal b{color:#d9fff0}.cursor{display:inline-block;width:8px;height:15px;background:var(--green);vertical-align:middle;animation:blink 1s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+section{padding:50px 0}.section-head{text-align:center;margin-bottom:27px}.section-head h2{font-size:2.15rem;margin:0 0 10px}.section-head h2 span{color:var(--green)}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#091311,#060b0b);border:1px solid var(--line);border-radius:17px;padding:24px;min-height:190px}.ico{font-size:1.8rem;color:var(--green)}.card h3{margin:14px 0 8px}.card p{color:var(--muted);line-height:1.6;font-size:.94rem}.card a{display:inline-block;margin-top:8px;color:var(--green);font-weight:700;font-size:.9rem}.panel{border:1px solid var(--line);border-radius:18px;padding:25px;background:#07100d}.assistant{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.assistant p{color:var(--muted);line-height:1.6}.assistant-form{display:flex;gap:10px;flex-wrap:wrap}.assistant-form input{min-width:220px;flex:1;background:#030707;border:1px solid #204237;color:white;padding:13px;border-radius:10px;outline:none}.assistant-form input:focus{border-color:var(--green)}.note{font-size:.82rem;color:#8ca49b;margin-top:12px}footer{border-top:1px solid var(--line);padding:24px 0;color:#a8b9b2;font-size:.9rem}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#10241b;border:1px solid var(--green);color:#eafff4;padding:13px 18px;border-radius:12px;display:none;z-index:20;max-width:90%;text-align:center}
+@media(max-width:780px){.links{display:none}.menu{display:inline-flex}.hero{grid-template-columns:1fr;padding:48px 0}.visual{min-height:320px}.grid{grid-template-columns:1fr 1fr}.assistant{grid-template-columns:1fr}.nav .actions .login{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero h1{font-size:3.5rem}.nav{min-height:66px}.brand{font-size:1.25rem}.visual{min-height:285px}.section-head h2{font-size:1.8rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#home" aria-label="Black Hat.ai home">◈ BLACK HAT<span>.ai</span></a>
+<nav class="links"><a href="#home">Home</a><a href="#tools">Tools</a><a href="#assistant">AI Assistant</a><a href="#learn">Learning</a><a href="#about">About</a></nav>
+<div class="actions"><a class="btn login" href="#assistant">Login</a><a class="btn primary" href="#tools">Get Started →</a></div>
+</div></header>
+<main>
+<div class="wrap hero" id="home">
+<div><div class="eyebrow">AI-powered cybersecurity learning</div><h1>BLACK HAT<span>.ai</span></h1><h2>Hack Smarter. Learn Faster. Stay Ahead.</h2><p>Your launchpad for ethical hacking, cybersecurity fundamentals, AI-assisted learning, and practical security tools. Learn responsibly, build skills, and protect the systems you use.</p><div class="hero-buttons"><a class="btn primary" href="#tools">⌘ Explore Tools →</a><a class="btn" href="#learn">▱ Learn Hacking</a></div></div>
+<div class="visual" aria-label="Cybersecurity terminal illustration"><div class="orb"><div class="hood">◈</div></div><div class="terminal"><b>root@blackhat.ai</b>:~# initialize_learning<br>&gt; ethical_security_mode: enabled<br>&gt; status: ready to learn <span class="cursor"></span></div></div>
+</div>
+<section id="tools"><div class="wrap"><div class="section-head"><h2>What We <span>Offer</span></h2><p>Practical resources for curious minds and responsible security learners.</p></div>
+<div class="grid">
+<article class="card"><div class="ico">⌘</div><h3>Security Tools</h3><p>Explore safe utilities, checklists, and resources for authorized security testing.</p><a href="#assistant">Explore tools →</a></article>
+<article class="card"><div class="ico">✳</div><h3>AI Assistant</h3><p>Ask questions about security concepts, terminal commands, code, and troubleshooting.</p><a href="#assistant">Open assistant →</a></article>
+<article class="card" id="learn"><div class="ico">▤</div><h3>Learning Hub</h3><p>Build your foundations with networking, Linux, web security, and guided practice.</p><a href="#about">Start learning →</a></article>
+<article class="card"><div class="ico">⬡</div><h3>Security Basics</h3><p>Learn defensive habits, threat awareness, and ways to secure your own devices.</p><a href="#about">Learn more →</a></article>
+<article class="card"><div class="ico">⌁</div><h3>Practice Lab</h3><p>Plan a local lab and practise only on systems you own or have permission to test.</p><a href="#assistant">Plan a lab →</a></article>
+<article class="card"><div class="ico">◎</div><h3>Community</h3><p>A starting point for sharing projects, notes, and responsible security knowledge.</p><a href="#about">Discover more →</a></article>
+</div></div></section>
+<section id="assistant"><div class="wrap"><div class="section-head"><h2>Meet the <span>AI Assistant</span></h2><p>Try the front-end demo below. It does not connect to an AI API yet.</p></div><div class="panel"><div class="assistant"><div><h3>What are you working on?</h3><p>Enter a topic and get a suggested next step. To enable real AI responses, connect your own backend/API securely—never put a secret API key in browser code.</p></div><form class="assistant-form" id="askForm"><input id="question" required maxlength="300" placeholder="e.g. Explain Linux file permissions" aria-label="Ask a cybersecurity question"><button class="btn primary" type="submit">Ask →</button></form></div><div class="note" id="answer" aria-live="polite">Demo mode · No data is sent to a server.</div></div></div></section>
+<section id="about"><div class="wrap"><div class="section-head"><h2>Learn. Build. <span>Defend.</span></h2><p>Black Hat.ai is a cybersecurity learning concept focused on ethical, authorized practice.</p></div></div></section>
+</main>
+<footer><div class="wrap foot"><div><strong>◈ BLACK HAT<span style="color:var(--green)">.ai</span></strong> &nbsp; Hack Smarter. Learn Faster. Stay Ahead.</div><div>© <span id="year"></span> Black Hat.ai · Privacy · Terms</div></div></footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const form=document.getElementById('askForm'), answer=document.getElementById('answer');
+form.addEventListener('submit',e=>{e.preventDefault();const q=document.getElementById('question').value.trim();if(!q)return;
+answer.textContent='Demo suggestion: break “'+q+'” into small concepts, read the official documentation, then practise in a local lab you own or are authorized to use. This page is not connected to a live AI model yet.';
+});
+</script>
+</body></html>
