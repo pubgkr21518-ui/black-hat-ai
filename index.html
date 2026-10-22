@@ -210,6 +210,121 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
 }
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:8px}
+
+/* ==================================================================
+   HYPER-LIQUID GLASS  (background + icons) — sirf look, koi logic nahi
+   ================================================================== */
+:root{
+ --bg:#040102;--panel:rgba(255,255,255,.038);--panel2:rgba(255,255,255,.072);
+ --border:rgba(255,255,255,.085);--border2:rgba(255,255,255,.15);
+ --glow:rgba(214,32,32,.22);
+}
+[data-theme="light"]{
+ --bg:#fbf5f5;--panel:rgba(30,10,12,.035);--panel2:rgba(30,10,12,.06);
+ --border:rgba(30,10,12,.1);--border2:rgba(30,10,12,.18);
+}
+body{background:var(--bg)}
+
+/* --- liquid background: black + deep red, dark rakha --- */
+#b1{background:
+ radial-gradient(1200px 660px at 50% -18%,rgba(138,11,11,.40),transparent 72%),
+ radial-gradient(820px 560px at 2% 106%,rgba(102,6,6,.46),transparent 74%),
+ radial-gradient(700px 480px at 100% 78%,rgba(118,8,8,.28),transparent 76%),
+ linear-gradient(180deg,#050102 0%,#090203 50%,#020001 100%);
+ animation:liqPulse 16s ease-in-out infinite alternate}
+@keyframes liqPulse{from{opacity:.84}to{opacity:1}}
+#b2{inset:-90px;opacity:.5;background-size:900px 900px;animation:liqDrift2 54s ease-in-out infinite alternate;will-change:transform}
+#b3{inset:-120px;opacity:.3;background-size:1300px 1300px;animation:liqDrift3 78s ease-in-out infinite alternate;will-change:transform}
+#b4{opacity:.075}
+@keyframes liqDrift2{from{transform:translate3d(0,0,0)}to{transform:translate3d(64px,-46px,0)}}
+@keyframes liqDrift3{from{transform:translate3d(0,0,0)}to{transform:translate3d(-78px,54px,0)}}
+[data-theme="light"] #b1{background:
+ radial-gradient(1100px 620px at 50% -16%,rgba(255,208,208,.85),transparent 72%),
+ radial-gradient(760px 520px at 3% 104%,rgba(255,196,196,.75),transparent 74%),
+ linear-gradient(180deg,#fffafa 0%,#fdf2f2 50%,#ffffff 100%)}
+[data-theme="light"] #b2{opacity:.2}[data-theme="light"] #b3{opacity:.14}[data-theme="light"] #b4{opacity:.05}
+
+/* --- liquid surfaces (blur sirf yahan = no lag) --- */
+#sidebar{
+ background:linear-gradient(180deg,rgba(30,5,9,.70),rgba(3,1,2,.88));
+ border-right:1px solid rgba(255,90,90,.12);
+ -webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%)}
+[data-theme="light"] #sidebar{background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,246,246,.92))}
+.topbar{
+ background:linear-gradient(180deg,rgba(28,5,8,.60),rgba(5,1,2,.52));
+ border-bottom:1px solid rgba(255,90,90,.13);
+ -webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%)}
+#composer::before{background:linear-gradient(transparent,rgba(4,1,2,.88))}
+[data-theme="light"] #composer::before{background:linear-gradient(transparent,rgba(251,245,245,.9))}
+
+/* --- liquid controls --- */
+.btn,.ico,.chip,.mini,.preset,.att,.seg-btn{
+ position:relative;overflow:hidden;isolation:isolate;
+ background:
+  linear-gradient(150deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 46%,rgba(255,60,60,.08) 100%),
+  linear-gradient(0deg,rgba(92,8,10,.28),rgba(8,2,3,.34));
+ border:1px solid rgba(255,255,255,.115);
+ box-shadow:0 10px 22px -15px rgba(0,0,0,.95),inset 0 1px 0 rgba(255,255,255,.20),inset 0 -10px 18px -15px rgba(239,68,68,.5);
+ transition:transform .16s,box-shadow .16s,border-color .16s,background .16s}
+.btn::after,.ico::after,.chip::after,.mini::after,.preset::after,.att::after,.mpill::after{
+ content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+ background:
+  radial-gradient(132% 96% at 20% -18%,rgba(255,255,255,.32),rgba(255,255,255,.04) 48%,transparent 66%),
+  radial-gradient(96% 82% at 84% 122%,rgba(239,68,68,.24),transparent 62%)}
+.btn:hover,.ico:hover,.chip:hover,.mini:hover,.preset:hover,.att:hover,.seg-btn:hover:not(.active){
+ background:
+  linear-gradient(150deg,rgba(255,255,255,.19),rgba(255,255,255,.03) 46%,rgba(255,60,60,.12) 100%),
+  linear-gradient(0deg,rgba(122,10,12,.36),rgba(10,2,3,.36));
+ border-color:rgba(255,120,120,.34);transform:translateY(-1px)}
+.btn:active,.ico:active,.chip:active,.mini:active,.seg-btn:active,.att:active{transform:translateY(0) scale(.975)}
+.btn.primary,.ico.on,.seg-btn.active{
+ color:#fff;border-color:rgba(255,175,175,.36);
+ background:
+  linear-gradient(150deg,rgba(255,255,255,.26),rgba(255,255,255,.05) 44%,rgba(255,255,255,.015) 100%),
+  linear-gradient(135deg,var(--a),var(--a2));
+ box-shadow:0 12px 30px -12px var(--a),inset 0 1px 0 rgba(255,255,255,.42),inset 0 -12px 20px -15px rgba(0,0,0,.6);
+ text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.btn.primary::after,.ico.on::after,.seg-btn.active::after{
+ background:radial-gradient(130% 96% at 22% -20%,rgba(255,255,255,.45),rgba(255,255,255,.06) 48%,transparent 64%)}
+
+/* --- liquid pill / composer --- */
+.mpill{position:relative;overflow:hidden;isolation:isolate;
+ background:linear-gradient(150deg,rgba(255,255,255,.13),rgba(255,255,255,.02) 50%,rgba(255,60,60,.07)),
+            linear-gradient(0deg,rgba(80,7,9,.30),rgba(8,2,3,.34));
+ border:1px solid rgba(255,255,255,.12);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.18);
+ -webkit-backdrop-filter:blur(12px) saturate(175%);backdrop-filter:blur(12px) saturate(175%)}
+.seg{background:rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.09);border-radius:12px;
+ -webkit-backdrop-filter:blur(10px) saturate(170%);backdrop-filter:blur(10px) saturate(170%)}
+.seg-btn{background:transparent;border:1px solid transparent;box-shadow:none}
+.composer-box{
+ position:relative;overflow:hidden;isolation:isolate;
+ background:
+  linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.02) 46%,rgba(255,60,60,.07) 100%),
+  linear-gradient(0deg,rgba(70,6,8,.34),rgba(5,1,2,.44));
+ border:1px solid rgba(255,255,255,.125);border-radius:20px;
+ box-shadow:0 24px 62px -32px #000,inset 0 1px 0 rgba(255,255,255,.18),inset 0 -20px 32px -26px rgba(239,68,68,.55);
+ -webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);
+ transition:.15s}
+.composer-box::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+ background:radial-gradient(120% 92% at 16% -22%,rgba(255,255,255,.20),rgba(255,255,255,.03) 50%,transparent 66%)}
+.composer-box:focus-within{border-color:rgba(255,110,110,.55);
+ box-shadow:0 0 0 4px var(--glow),0 24px 62px -32px #000,inset 0 1px 0 rgba(255,255,255,.22)}
+
+/* --- liquid marks / overlays --- */
+.logo-mark,.orb,.avatar{position:relative;overflow:hidden;isolation:isolate}
+.logo-mark::after,.orb::after,.avatar::after{
+ content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;
+ background:radial-gradient(122% 94% at 24% -18%,rgba(255,255,255,.44),rgba(255,255,255,.07) 46%,transparent 62%);
+ mix-blend-mode:screen;opacity:.75}
+.msg.assistant .avatar{border-color:rgba(255,90,90,.22)}
+#toast{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-color:rgba(255,120,120,.2)}
+dialog,.pal-box{background:linear-gradient(160deg,rgba(30,6,9,.93),rgba(7,2,3,.96));
+ border-color:rgba(255,90,90,.16);
+ -webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%)}
+[data-theme="light"] dialog,[data-theme="light"] .pal-box{background:#fff}
+.code-block{border-color:rgba(120,150,255,.22)}
+@media(prefers-reduced-motion:reduce){#b1,#b2,#b3{animation:none}}
 </style>
 </head>
 <body>
