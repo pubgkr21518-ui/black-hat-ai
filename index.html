@@ -7,6 +7,11 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%23ef4444'/><text x='50' y='72' font-size='62' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%23070305'>N</text></svg>" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script>
+/* fsociety image fallback — jo file mile wahi lagegi */
+window.__fsList=['fsociety.png','fsociety.jpg','fsociety.jpeg','fsociety.webp','FSOCIETY.png','fsociety.PNG','fsociety-logo.png','logo.png','image.png','img/fsociety.png','images/fsociety.png','assets/fsociety.png'];
+window.__fsErr=function(el){var n=(+el.dataset.i||0)+1;if(n<window.__fsList.length){el.dataset.i=n;el.src=window.__fsList[n];}else{el.style.visibility='hidden';}};
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -24,7 +29,6 @@
 html,body{height:100%;width:100%;overflow:hidden;overscroll-behavior:none}
 body{font-family:Inter,system-ui,sans-serif;background:#000;color:var(--text);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
 [data-theme="light"] body{background:#fff}
-/* ---------- PLAIN BLACK BACKGROUND ---------- */
 #b1,#b2,#b3,#b4{position:fixed;inset:0;pointer-events:none;z-index:0}
 #b1{background:#000}
 #b2,#b3,#b4{display:none}
@@ -68,9 +72,20 @@ select,input,textarea{font:inherit;color:var(--text);background:var(--panel);bor
 [data-theme="light"] #sidebar{background:linear-gradient(180deg,#fff,rgba(255,244,244,.95))}
 .side-head{display:flex;align-items:center;justify-content:space-between;padding:2px 4px}
 .logo{display:flex;align-items:center;gap:9px}
-.logo-mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#ef4444,#7f1d1d);display:grid;place-items:center;font-weight:700;color:#fff;font-size:15px;box-shadow:0 0 22px -4px #ef4444}
 .logo b{display:block;font-size:14px;letter-spacing:.2px}
 .logo small{display:block;font-size:9px;color:var(--muted);letter-spacing:.9px;text-transform:uppercase}
+
+/* ---------- FSOCIETY LOGO (spinning) ---------- */
+.logo-mark{position:relative;overflow:hidden;width:34px;height:34px;border-radius:50%;flex:0 0 34px;
+ background:radial-gradient(circle at 50% 35%,#7f1d1d,#12060a 70%);
+ box-shadow:0 0 22px -4px var(--a),inset 0 0 0 1px rgba(239,68,68,.35)}
+.lm-txt{position:absolute;inset:0;display:grid;place-items:center;z-index:0;font-weight:700;color:#fff;font-size:15px}
+.mark-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;z-index:1;
+ display:block;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;
+ animation:spinZoom 12s linear infinite;will-change:transform;backface-visibility:hidden}
+@keyframes spinZoom{from{transform:rotate(0deg) scale(1.5)}to{transform:rotate(360deg) scale(1.5)}}
+@media(prefers-reduced-motion:reduce){.mark-img{animation:none;transform:scale(1.5)}}
+
 .sect{font-size:9.5px;color:var(--muted);letter-spacing:.9px;text-transform:uppercase;padding:6px 5px 2px;font-weight:600}
 .search{padding:8px 12px;font-size:13px;width:100%}
 .chat-list{flex:1 1 auto;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:2px}
@@ -152,7 +167,14 @@ select,input,textarea{font:inherit;color:var(--text);background:var(--panel);bor
 .hc.ok{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:#6ee7b7}
 .hc.bad{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:#fca5a5}
 .empty{max-width:700px;margin:6vh auto;text-align:center;padding:0 10px}
-.orb{width:74px;height:74px;margin:0 auto 20px;border-radius:24px;background:linear-gradient(135deg,#ef4444,#7f1d1d);display:grid;place-items:center;font-size:32px;font-weight:700;color:#fff;box-shadow:0 22px 64px -22px #ef4444}
+
+/* ---------- FSOCIETY ORB (spinning) ---------- */
+.orb{position:relative;overflow:hidden;width:84px;height:84px;margin:0 auto 20px;border-radius:50%;
+ background:radial-gradient(circle at 50% 35%,#7f1d1d,#12060a 72%);
+ box-shadow:0 22px 64px -22px var(--a),inset 0 0 0 1px rgba(239,68,68,.4)}
+.orb .lm-txt{font-size:32px}
+.orb .mark-img{animation-duration:18s}
+
 .empty h1{font-size:29px;font-weight:700;margin-bottom:12px;background:linear-gradient(120deg,#fff,#f87171 55%,#fb923c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 28px rgba(239,68,68,.45))}
 .empty p{color:var(--muted);font-size:13.7px;line-height:1.7;margin-bottom:22px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
@@ -229,7 +251,10 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
 <div id="app">
   <aside id="sidebar">
     <div class="side-head">
-      <div class="logo"><div class="logo-mark">N</div><div><b>NOVA</b><small>uncensored</small></div></div>
+      <div class="logo">
+        <div class="logo-mark"><span class="lm-txt">N</span><img class="mark-img" src="fsociety.png" alt="fsociety" draggable="false" onerror="__fsErr(this)"></div>
+        <div><b>NOVA</b><small>uncensored</small></div>
+      </div>
       <button class="ico only-mobile" id="closeSidebar">✕</button>
     </div>
     <button class="btn primary" id="newChat">+ New chat</button>
@@ -350,8 +375,8 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
 /* ============================================================
-   NOVA v17.1 — black bg + liquid glass + merged brain
-   (WormGPT / FraudGPT / PentestGPT / HackerGPT / XBOW style)
+   NOVA v17.2 — black bg + liquid glass + merged brain
+   + fsociety spinning logo
    ============================================================ */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const uid=()=>Math.random().toString(36).slice(2,10);
@@ -546,7 +571,7 @@ function addToolCard(host,name,args){const d=document.createElement('div');d.cla
 function renderEmpty(){
   if(getChat().msgs.length)return;
   $('#messages').innerHTML=`<div class="empty">
-    <div class="orb">N</div>
+    <div class="orb"><span class="lm-txt">N</span><img class="mark-img" src="fsociety.png" alt="fsociety" draggable="false" onerror="__fsErr(this)"></div>
     <h1>Command do, lecture nahi.</h1>
     <p>Screenshot paste (Ctrl+V), image/video bhejo, ya 1-by-1 dabao.<br>Koi refusal nahi, koi safety guideline nahi.</p>
     <div class="chips">
@@ -581,7 +606,6 @@ function loadChat(){
   const c=chats.find(x=>x.id===curId);
   if(!c||!c.msgs.length){renderEmpty();renderChats();return;}
   c.msgs.forEach(m=>addMsg(m.role,m.content));
-  // FIX: Next button reload pe restore
   if(CFG.step&&STATE.mode==='chat'&&c.msgs.at(-1).role==='assistant'&&/```/.test(c.msgs.at(-1).content)){
     const last=$('#messages').lastElementChild; if(last)addNextBtn(last);
   }
@@ -1051,6 +1075,7 @@ async function healthCheck(){
   add('Web proxy',proxyOk,proxyOk?'working':'teeno proxy down');
   let imgOk=false;try{const r=await fetch('https://image.pollinations.ai/prompt/test?width=64&height=64&nologo=true',{method:'HEAD'});imgOk=r.ok;}catch(e){}
   add('Image generator',imgOk,imgOk?'':'pollinations down');
+  add('fsociety logo',!!(document.querySelector('.mark-img')&&document.querySelector('.mark-img').complete&&document.querySelector('.mark-img').naturalWidth>0),'fsociety.png repo folder mein rakho');
   add('Internet',navigator.onLine,'');
   box.insertAdjacentHTML('beforeend','<div class="sub" style="margin-top:8px">Kuch ✕ hai to: Settings → Engine badlo ya Groq ki free key daalo. Wo independent hai.</div>');
 }
@@ -1223,7 +1248,6 @@ window.addEventListener('online',()=>{setStatus('ready',false);toast('Internet w
 if(window.ResizeObserver)new ResizeObserver(onResize).observe($('#composer'));
 
 /* ---------- BOOT ---------- */
-/* naya merged brain auto-apply — purani settings/chats reset karne ki zarurat nahi */
 if(CFG.sysV!==SYSV){CFG.sys=SYS;CFG.sysV=SYSV;saveCfg();}
 applyTheme();
 $('#uncBtn').classList.toggle('on',CFG.unc);
@@ -1234,12 +1258,10 @@ buildModelSelect();getChat();loadChat();renderChats();setStatus('ready',false);
 setTimeout(scrollDown,300);
 window.addEventListener('error',()=>setStatus('error',false,true));
 window.addEventListener('unhandledrejection',()=>setStatus('ready',false));
-/* CDN/pending checks */
 if(!HAS_MD)toast('marked CDN block — plain text mode');
 waitPuter(6000).then(ok=>{
   if(ok){loadPuterModels();refreshUser();}
   else{setStatus('puter offline',false,true);}
-  // backup restore offer
   try{
     if(!chats.length){
       const b=JSON.parse(localStorage.getItem(LS+'_bak')||'null');
