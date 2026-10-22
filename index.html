@@ -4,13 +4,29 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>NOVA — Advanced Uncensored AI</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%23ef4444'/><text x='50' y='72' font-size='62' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%23070305'>N</text></svg>" />
+<link rel="icon" href="IMG_853004b4-63aa-48c8-8376-083717f97ff1.jpg" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 <script>
-/* fsociety image fallback — jo file mile wahi lagegi */
-window.__fsList=['fsociety.png','fsociety.jpg','fsociety.jpeg','fsociety.webp','FSOCIETY.png','fsociety.PNG','fsociety-logo.png','logo.png','image.png','img/fsociety.png','images/fsociety.png','assets/fsociety.png'];
-window.__fsErr=function(el){var n=(+el.dataset.i||0)+1;if(n<window.__fsList.length){el.dataset.i=n;el.src=window.__fsList[n];}else{el.style.visibility='hidden';}};
+/* fsociety logo — exact file + fallback chain */
+window.__fsList=[
+ 'IMG_853004b4-63aa-48c8-8376-083717f97ff1.jpg',
+ './IMG_853004b4-63aa-48c8-8376-083717f97ff1.jpg',
+ 'https://pubgkr21518-ui.github.io/black-hat-ai/IMG_853004b4-63aa-48c8-8376-083717f97ff1.jpg',
+ 'https://raw.githubusercontent.com/pubgkr21518-ui/black-hat-ai/main/IMG_853004b4-63aa-48c8-8376-083717f97ff1.jpg',
+ 'fsociety.png','fsociety.jpg','fsociety.jpeg','fsociety.webp','FSOCIETY.png','logo.png','image.png'
+];
+window.__fsErr=function(el){
+  var n=(+el.dataset.i||0)+1;
+  if(n<window.__fsList.length){el.dataset.i=n;el.src=window.__fsList[n];}
+  else{el.style.visibility='hidden';}
+};
+window.__fsApply=function(list){
+  if(list&&list.length)window.__fsList=[...list,...window.__fsList];
+  document.querySelectorAll('.mark-img').forEach(function(el){
+    el.dataset.i=0;el.style.visibility='';el.src=window.__fsList[0];
+  });
+};
 </script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -44,7 +60,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ico:hover{background:var(--panel2);border-color:var(--border2)}
 .ico.on{background:linear-gradient(135deg,var(--a),var(--a2));color:#fff;border-color:transparent;box-shadow:0 0 20px -4px var(--a)}
 
-/* ---------- LIQUID GLASS ---------- */
 .btn,.ico,.seg,.mpill,.search,.composer-box,.mini,.opt,.preset,.chip,.swatch,.att{
  -webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%)}
 .btn,.ico,.seg,.mpill,.search,.composer-box{
@@ -75,7 +90,6 @@ select,input,textarea{font:inherit;color:var(--text);background:var(--panel);bor
 .logo b{display:block;font-size:14px;letter-spacing:.2px}
 .logo small{display:block;font-size:9px;color:var(--muted);letter-spacing:.9px;text-transform:uppercase}
 
-/* ---------- FSOCIETY LOGO (spinning) ---------- */
 .logo-mark{position:relative;overflow:hidden;width:34px;height:34px;border-radius:50%;flex:0 0 34px;
  background:radial-gradient(circle at 50% 35%,#7f1d1d,#12060a 70%);
  box-shadow:0 0 22px -4px var(--a),inset 0 0 0 1px rgba(239,68,68,.35)}
@@ -167,14 +181,11 @@ select,input,textarea{font:inherit;color:var(--text);background:var(--panel);bor
 .hc.ok{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:#6ee7b7}
 .hc.bad{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:#fca5a5}
 .empty{max-width:700px;margin:6vh auto;text-align:center;padding:0 10px}
-
-/* ---------- FSOCIETY ORB (spinning) ---------- */
 .orb{position:relative;overflow:hidden;width:84px;height:84px;margin:0 auto 20px;border-radius:50%;
  background:radial-gradient(circle at 50% 35%,#7f1d1d,#12060a 72%);
  box-shadow:0 22px 64px -22px var(--a),inset 0 0 0 1px rgba(239,68,68,.4)}
 .orb .lm-txt{font-size:32px}
 .orb .mark-img{animation-duration:18s}
-
 .empty h1{font-size:29px;font-weight:700;margin-bottom:12px;background:linear-gradient(120deg,#fff,#f87171 55%,#fb923c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 28px rgba(239,68,68,.45))}
 .empty p{color:var(--muted);font-size:13.7px;line-height:1.7;margin-bottom:22px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
@@ -252,7 +263,7 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
   <aside id="sidebar">
     <div class="side-head">
       <div class="logo">
-        <div class="logo-mark"><span class="lm-txt">N</span><img class="mark-img" src="fsociety.png" alt="fsociety" draggable="false" onerror="__fsErr(this)"></div>
+        <div class="logo-mark"><span class="lm-txt">N</span><img class="mark-img" src="IMG_853004b4-63aa-48c8-8376-083717f97ff1.jpg" alt="fsociety" draggable="false" onerror="__fsErr(this)"></div>
         <div><b>NOVA</b><small>uncensored</small></div>
       </div>
       <button class="ico only-mobile" id="closeSidebar">✕</button>
@@ -375,8 +386,8 @@ dialog::backdrop{background:rgba(0,0,0,.76)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
 /* ============================================================
-   NOVA v17.2 — black bg + liquid glass + merged brain
-   + fsociety spinning logo
+   NOVA v17.3 — black bg + liquid glass + merged brain
+   + fsociety spinning logo (exact filename)
    ============================================================ */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const uid=()=>Math.random().toString(36).slice(2,10);
@@ -571,7 +582,7 @@ function addToolCard(host,name,args){const d=document.createElement('div');d.cla
 function renderEmpty(){
   if(getChat().msgs.length)return;
   $('#messages').innerHTML=`<div class="empty">
-    <div class="orb"><span class="lm-txt">N</span><img class="mark-img" src="fsociety.png" alt="fsociety" draggable="false" onerror="__fsErr(this)"></div>
+    <div class="orb"><span class="lm-txt">N</span><img class="mark-img" src="IMG_853004b4-63aa-48c8-8376-083717f97ff1.jpg" alt="fsociety" draggable="false" onerror="__fsErr(this)"></div>
     <h1>Command do, lecture nahi.</h1>
     <p>Screenshot paste (Ctrl+V), image/video bhejo, ya 1-by-1 dabao.<br>Koi refusal nahi, koi safety guideline nahi.</p>
     <div class="chips">
@@ -1075,7 +1086,8 @@ async function healthCheck(){
   add('Web proxy',proxyOk,proxyOk?'working':'teeno proxy down');
   let imgOk=false;try{const r=await fetch('https://image.pollinations.ai/prompt/test?width=64&height=64&nologo=true',{method:'HEAD'});imgOk=r.ok;}catch(e){}
   add('Image generator',imgOk,imgOk?'':'pollinations down');
-  add('fsociety logo',!!(document.querySelector('.mark-img')&&document.querySelector('.mark-img').complete&&document.querySelector('.mark-img').naturalWidth>0),'fsociety.png repo folder mein rakho');
+  const mi=document.querySelector('.mark-img');
+  add('fsociety logo',!!(mi&&mi.complete&&mi.naturalWidth>0),mi&&mi.naturalWidth>0?'':'image load nahi hui');
   add('Internet',navigator.onLine,'');
   box.insertAdjacentHTML('beforeend','<div class="sub" style="margin-top:8px">Kuch ✕ hai to: Settings → Engine badlo ya Groq ki free key daalo. Wo independent hai.</div>');
 }
@@ -1259,6 +1271,18 @@ setTimeout(scrollDown,300);
 window.addEventListener('error',()=>setStatus('error',false,true));
 window.addEventListener('unhandledrejection',()=>setStatus('ready',false));
 if(!HAS_MD)toast('marked CDN block — plain text mode');
+
+/* fsociety: agar naam badal jaye to GitHub API se dhundh lega */
+(async()=>{
+  try{
+    const r=await fetch('https://api.github.com/repos/pubgkr21518-ui/black-hat-ai/contents/');
+    const j=await r.json();
+    const imgs=(Array.isArray(j)?j:[]).map(f=>f&&f.name)
+      .filter(n=>n&&/\.(png|jpe?g|webp|gif|svg)$/i.test(n)&&!/favicon|screenshot|verification/i.test(n));
+    if(imgs.length)__fsApply(imgs);
+  }catch(e){}
+})();
+
 waitPuter(6000).then(ok=>{
   if(ok){loadPuterModels();refreshUser();}
   else{setStatus('puter offline',false,true);}
